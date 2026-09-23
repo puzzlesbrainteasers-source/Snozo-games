@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Snozo Games</title>
+
+    <meta name="description" content="Snozo Games - Discover fun, engaging and exciting games.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0b12;
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 24px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #242432;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 9vw, 100px);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #b8b8c7;
+            font-size: 20px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .games {
+            padding: 60px 7%;
+        }
+
+        .games h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .game-card {
+            max-width: 500px;
+            background: #171722;
+            border: 1px solid #292938;
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .game-card h3 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .game-card p {
+            color: #b8b8c7;
+            line-height: 1.6;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 30px 7%;
+            border-top: 1px solid #242432;
+            color: #888899;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Snozo Games</div>
+
+        <nav>
+            <a href="#games">Games</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Snozo Games</h1>
+
+        <p>
+            Discover fun, engaging and exciting games
+            designed to keep you playing.
+        </p>
+    </section>
+
+    <section class="games" id="games">
+        <h2>Our Games</h2>
+
+        <div class="game-card">
+            <h3>2048 Ultra</h3>
+
+            <p>
+                A powerful and exciting take on the classic
+                2048 puzzle game.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Snozo Games. All rights reserved.
+    </footer>
+
+</body>
+</html>
