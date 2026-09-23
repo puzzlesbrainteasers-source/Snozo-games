@@ -4,137 +4,616 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Snozo Games</title>
+    <title>Snozo Games | Play. Puzzle. Discover.</title>
 
-    <meta name="description" content="Snozo Games - Discover fun, engaging and exciting games.">
+    <meta name="description"
+          content="Snozo Games creates fun, engaging and challenging games for players everywhere.">
 
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #0b0b12;
-            color: white;
-            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080812;
+            color: #ffffff;
+            line-height: 1.6;
         }
 
+        /* =========================
+           HEADER
+        ========================== */
+
         header {
-            padding: 24px 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #242432;
+
+            padding: 18px 7%;
+
+            background: rgba(8, 8, 18, 0.92);
+            border-bottom: 1px solid #252538;
+
+            backdrop-filter: blur(12px);
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 25px;
             font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
         }
 
         nav a {
-            color: #ffffff;
+            color: #c7c7d8;
             text-decoration: none;
-            margin-left: 25px;
+            font-size: 15px;
+            transition: 0.25s;
         }
 
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
         .hero {
-            min-height: 70vh;
+            min-height: 78vh;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
             text-align: center;
-            padding: 50px 20px;
+
+            padding: 80px 20px;
+
+            background:
+                radial-gradient(circle at 50% 35%,
+                rgba(110, 80, 255, 0.18),
+                transparent 45%);
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            padding: 7px 15px;
+            margin-bottom: 25px;
+
+            border: 1px solid #343451;
+            border-radius: 50px;
+
+            color: #bdbde0;
+            font-size: 13px;
         }
 
         .hero h1 {
-            font-size: clamp(50px, 9vw, 100px);
-            margin-bottom: 20px;
+            font-size: clamp(52px, 10vw, 110px);
+            line-height: 1;
+            letter-spacing: -3px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #a89cff
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            color: #b8b8c7;
-            font-size: 20px;
-            max-width: 600px;
-            line-height: 1.6;
+            max-width: 650px;
+
+            color: #aaaabe;
+
+            font-size: 19px;
+            line-height: 1.7;
+
+            margin-bottom: 35px;
         }
 
-        .games {
-            padding: 60px 7%;
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .games h2 {
-            font-size: 36px;
-            margin-bottom: 30px;
+        .button {
+            display: inline-block;
+
+            padding: 13px 24px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+            font-weight: 700;
+
+            transition: 0.25s;
         }
 
-        .game-card {
-            max-width: 500px;
-            background: #171722;
-            border: 1px solid #292938;
-            border-radius: 20px;
-            padding: 30px;
+        .button-primary {
+            background: #ffffff;
+            color: #080812;
         }
 
-        .game-card h3 {
-            font-size: 28px;
+        .button-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border: 1px solid #38384f;
+            color: #ffffff;
+        }
+
+        .button-secondary:hover {
+            background: #151525;
+        }
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================== */
+
+        section {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            font-size: 38px;
             margin-bottom: 12px;
         }
 
-        .game-card p {
-            color: #b8b8c7;
-            line-height: 1.6;
+        .section-description {
+            color: #9999ae;
+            max-width: 650px;
+            margin-bottom: 40px;
         }
 
-        footer {
-            margin-top: 60px;
-            padding: 30px 7%;
-            border-top: 1px solid #242432;
-            color: #888899;
+        /* =========================
+           FEATURED GAME
+        ========================== */
+
+        .featured {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+
+            gap: 35px;
+
+            align-items: center;
+
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .game-preview {
+            min-height: 360px;
+
+            border-radius: 24px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #18182b,
+                    #10101c
+                );
+
+            border: 1px solid #2b2b42;
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.35);
+        }
+
+        .tile-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 58px);
+            gap: 8px;
+        }
+
+        .tile {
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 10px;
+
+            background: #292941;
+
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .tile.highlight {
+            background: #4a3d87;
+        }
+
+        .game-info h3 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .game-info p {
+            color: #a5a5b8;
+            margin-bottom: 25px;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            margin-bottom: 30px;
+        }
+
+        .feature {
+            padding: 7px 12px;
+
+            border-radius: 7px;
+
+            background: #171725;
+            border: 1px solid #29293b;
+
+            color: #c4c4d4;
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about {
+            max-width: 900px;
+            margin: auto;
             text-align: center;
+        }
+
+        .about p {
+            color: #a4a4b8;
+            font-size: 18px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            border-top: 1px solid #242438;
+
+            padding: 35px 7%;
+
+            text-align: center;
+
+            color: #77778b;
+        }
+
+        .footer-links {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #9999ad;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            header {
+                padding: 16px 5%;
+            }
+
+            nav {
+                gap: 14px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+
+            .featured {
+                grid-template-columns: 1fr;
+            }
+
+            .game-preview {
+                min-height: 300px;
+            }
+
+            .game-info h3 {
+                font-size: 34px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .logo {
+                font-size: 20px;
+            }
+
+            nav a:nth-child(2) {
+                display: none;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .tile-grid {
+                grid-template-columns: repeat(4, 45px);
+            }
+
+            .tile {
+                width: 45px;
+                height: 45px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- =========================
+         HEADER
+    ========================== -->
+
     <header>
-        <div class="logo">Snozo Games</div>
+
+        <div class="logo">
+            Snozo Games
+        </div>
 
         <nav>
             <a href="#games">Games</a>
             <a href="#about">About</a>
+            <a href="#contact">Contact</a>
         </nav>
+
     </header>
 
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
     <section class="hero">
-        <h1>Snozo Games</h1>
+
+        <div class="hero-badge">
+            Independent Game Studio
+        </div>
+
+        <h1>
+            <span>Snozo Games</span>
+        </h1>
 
         <p>
-            Discover fun, engaging and exciting games
-            designed to keep you playing.
+            Play. Puzzle. Discover.
+            <br>
+            Creating games designed to be simple to start,
+            fun to play and challenging to master.
         </p>
+
+        <div class="hero-buttons">
+
+            <a href="#games"
+               class="button button-primary">
+                Explore Games
+            </a>
+
+            <a href="#about"
+               class="button button-secondary">
+                About Snozo
+            </a>
+
+        </div>
+
     </section>
 
-    <section class="games" id="games">
-        <h2>Our Games</h2>
 
-        <div class="game-card">
-            <h3>2048 Ultra</h3>
+    <!-- =========================
+         GAMES
+    ========================== -->
+
+    <section id="games">
+
+        <div class="featured">
+
+            <!-- GAME VISUAL -->
+
+            <div class="game-preview">
+
+                <div class="tile-grid">
+
+                    <div class="tile">2</div>
+                    <div class="tile">4</div>
+                    <div class="tile">8</div>
+                    <div class="tile">16</div>
+
+                    <div class="tile">32</div>
+                    <div class="tile highlight">64</div>
+                    <div class="tile">128</div>
+                    <div class="tile">256</div>
+
+                    <div class="tile">512</div>
+                    <div class="tile highlight">1024</div>
+                    <div class="tile">2</div>
+                    <div class="tile">4</div>
+
+                    <div class="tile">8</div>
+                    <div class="tile">16</div>
+                    <div class="tile">32</div>
+                    <div class="tile highlight">2048</div>
+
+                </div>
+
+            </div>
+
+
+            <!-- GAME INFORMATION -->
+
+            <div class="game-info">
+
+                <div class="hero-badge">
+                    Featured Game
+                </div>
+
+                <h3>
+                    2048 Ultra
+                </h3>
+
+                <p>
+                    A new way to experience the classic
+                    number puzzle. Play different board sizes,
+                    take on challenges and use powerful abilities
+                    when you're stuck.
+                </p>
+
+
+                <div class="features">
+
+                    <span class="feature">4 × 4</span>
+
+                    <span class="feature">5 × 5</span>
+
+                    <span class="feature">Daily Challenge</span>
+
+                    <span class="feature">Power System</span>
+
+                    <span class="feature">Mystery Box</span>
+
+                </div>
+
+
+                <!-- We'll connect this to Google Play later -->
+
+                <a href="#"
+                   class="button button-primary">
+                    Coming Soon
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about">
+
+        <div class="about">
+
+            <div class="hero-badge">
+                About Snozo Games
+            </div>
+
+            <h2 class="section-title">
+                Games made to be played.
+            </h2>
 
             <p>
-                A powerful and exciting take on the classic
-                2048 puzzle game.
+                Snozo Games is an independent game studio
+                focused on creating accessible, engaging and
+                replayable games for players of all kinds.
             </p>
+
         </div>
+
     </section>
 
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact">
+
+        <div class="about">
+
+            <div class="hero-badge">
+                Support
+            </div>
+
+            <h2 class="section-title">
+                Need help?
+            </h2>
+
+            <p>
+                Game support and contact information
+                will be available here.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
+
+        <div class="footer-links">
+
+            <a href="#games">Games</a>
+
+            <a href="#about">About</a>
+
+            <a href="#contact">Support</a>
+
+        </div>
+
         © 2026 Snozo Games. All rights reserved.
+
     </footer>
 
 </body>
